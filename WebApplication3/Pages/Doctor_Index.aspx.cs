@@ -43,7 +43,8 @@ namespace WebApplication3
             con.Open();
             SqlCommand cmd1 = new SqlCommand("select * from timeShift where Date_ = '" + date_TS + "' and shift_no = '" + timeshift + "' and doc_ssn = '" + doc_ssn + "'", con);
             SqlDataReader reader1 = cmd1.ExecuteReader();
-            if (!reader1.HasRows) { 
+            if (!reader1.HasRows) {
+                reader1.Close();
             SqlCommand cmd = new SqlCommand("insert into timeShift(Date_, shift_no,shift_des,doc_ssn) values('"+ date_TS+"', '"+ timeshift+"','"+ discription +"', '"+doc_ssn+"'); ", con);
             SqlDataReader reader = cmd.ExecuteReader();
             con.Close();
