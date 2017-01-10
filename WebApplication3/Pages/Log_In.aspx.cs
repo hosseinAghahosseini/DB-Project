@@ -44,15 +44,16 @@ namespace WebApplication3
         }
         protected void PatientLogin(object sender, EventArgs e)
         {
+            
             SqlConnection con = new SqlConnection("Data Source=MRJ;Initial Catalog=Clinic2;Integrated Security=True");
             con.Open();
             SqlCommand cmd = new SqlCommand("select * from patient where email = '" + P_user + "'and password_ = '" + P_pass + "'", con);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
-                CheckLoggedIn.username = user;
-                CheckLoggedIn.password = d_pass;
-                Response.Redirect("Doctor_Index.aspx");
+                CheckLoggedIn.p_user = P_user;
+                CheckLoggedIn.p_pass = P_pass;
+                Response.Redirect("Patient_Index.aspx");
             }
             else
             {

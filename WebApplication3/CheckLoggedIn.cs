@@ -10,6 +10,8 @@ namespace WebApplication3
         public static string username;
         public static string password;
 
+        public static string p_user;
+        public static string p_pass;
 
 
     }
